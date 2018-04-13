@@ -25,6 +25,11 @@ namespace WebApplication1.Pages
             foreach(var userRecord in db.Uses.Where(t=>tbxPassword.Username== userName && tbxPassword.Password ==password))
             {
                 user = userRecord;
+                auhenticsation = true;
+            }
+            if(auhenticsation)
+            {
+                IdeentityHelper.
             }
         }
 

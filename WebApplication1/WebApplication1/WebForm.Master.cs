@@ -9,6 +9,7 @@ namespace WebApplication1
 {
     public partial class WebForm : System.Web.UI.MasterPage
     {
+        public user curretUser = new user;
         protected void Page_Load(object sender, EventArgs e)
         {
 
