@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebForm.master.cs" Inherits="WebApplication1.WebForm" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="Styles/StyleSheet.css" type="text/css" />
+    <title>My Website</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="banner">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/MyBanner.png" Width="100%" />
+        </div>
+        <div id="navigation">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Pages/home.aspx" Text="Home" ToolTip="Click This menu item to view home page" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Pages/about.aspx" Text="About" ToolTip="Click this to ge the about page" Value="About"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Pages/Reports.aspx" Text="Reports" Value="Reports"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Pages/LogIn.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </div>
+        <div id="content">
+            
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+</div>
+    <div>
+
+    </div>
+    </form>
+</body>
+</html>
