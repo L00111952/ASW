@@ -1,26 +1,70 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="WebApplication1.Pages.LogIn" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Pages.LogIn" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+     <link rel="stylesheet" href="Styles/Stylesheet.css" type="text/css"/>
+    <link rel="stylesheet2" href="Styles/signin.css" type="text/css"/>
+    <link rel="stylesheet3" href="Styles/bootstrap.min.css" type=text/css/>
+ 
+   <div class="container" runat="server">
+        <asp:Table ID="Table1" Class="form-signin" runat="server"             
+            CellSpacing="50" BorderStyle="None" HorizontalAlign="Center">
+              
+             <asp:TableRow 
+                ID="TableRow1" 
+                runat="server" 
+                BackColor="Transparent">
+                <asp:TableCell >
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                </asp:TableCell>          
+            </asp:TableRow>           	   
+            <asp:TableRow 
+                ID="TableRow2" 
+                runat="server" 
+                BackColor="Transparent"
+                ForeColor ="Black">            
+                <asp:TableCell>
+                <asp:TextBox runat="server" id="tbxUsername" class="form-control" placeholder="User name"></asp:TextBox>                
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow 
+                ID="TableRow3" 
+                runat="server" 
+                BackColor="Transparent"
+                ForeColor ="Black"
+                CellPadding="5"> 
+                <asp:TableCell>
+                <asp:TextBox runat="server" id="tbxPassword" class="form-control" placeholder="Password"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow 
+                ID="TableRow4" 
+                runat="server" 
+                BackColor="Transparent"
+                ForeColor ="Black"
+                CellPadding="5">
+             <asp:TableCell HorizontalAlign="Right">
+                <asp:Button CssClass="btn btn-lg btn-primary btn-block" runat="server" Text="Log in" id="btnLogin" OnClick="btnLogin_Click"></asp:Button>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableFooterRow runat="server" BackColor="Transparent">
+                <asp:TableCell         
+                    HorizontalAlign="Right"
+                    Font-Italic="true">
+                    <asp:Label runat="server" Text="" id="lblSuccess"></asp:Label>
+                </asp:TableCell>
+            </asp:TableFooterRow>
+        </asp:Table>
+
     
-        Please EnterYour Login Details
-        <br />
-        <br />
-        Username
-        <asp:TextBox ID="tbxUsernaeme" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-        <br />
-        Password<asp:TextBox ID="tbxPassword" runat="server"></asp:TextBox>
-        <br />
-        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Text Loggin" />
+            
+    </div> <!-- /container -->
+   
+</asp:Content>
+
     
-    </div>
-    </form>
-</body>
-</html>
+            
+
