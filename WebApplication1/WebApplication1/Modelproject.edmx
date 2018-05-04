@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HouseingSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applicant">
+          <Key>
+            <PropertyRef Name="IdenficationNumber" />
+          </Key>
+          <Property Name="IdenficationNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="College" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MatialStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="PreferenceAbouttheApartmentID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Forename" />
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="EmploymentDate" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="ConfirmPassword" />
+          </Key>
+          <Property Name="EmployeeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Forename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmploymentDate" Type="date" Nullable="false" />
+          <Property Name="AccessLevel" Type="int" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.Finances' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Finances">
+          <Key>
+            <PropertyRef Name="ApartmentId" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Billing" />
+            <PropertyRef Name="Rent" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ApartmentId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Billing" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rent" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.Finances2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Finances2">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Billing" />
+            <PropertyRef Name="Rent" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Billing" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Rent" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.MaintenceRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MaintenceRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SummisionDate" />
+            <PropertyRef Name="NameOfResident" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="DatePromblemWasFixed" />
+            <PropertyRef Name="NameOfEmployeethatFixedit" />
+            <PropertyRef Name="PrombolemDescription" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SummisionDate" Type="date" Nullable="false" />
+          <Property Name="NameOfResident" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatePromblemWasFixed" Type="date" Nullable="false" />
+          <Property Name="NameOfEmployeethatFixedit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrombolemDescription" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.PreferenceAboutApartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PreferenceAboutApartment">
+          <Key>
+            <PropertyRef Name="FurnisherStautus" />
+            <PropertyRef Name="AirCondtitioning" />
+            <PropertyRef Name="VillageCity" />
+            <PropertyRef Name="NumberOfRooms" />
+            <PropertyRef Name="DishWasher" />
+          </Key>
+          <Property Name="FurnisherStautus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AirCondtitioning" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VillageCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberOfRooms" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DishWasher" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.Resident' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="IdenficatioNumber" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="College" />
+            <PropertyRef Name="DepartmentOftheFamily" />
+            <PropertyRef Name="TelephoneNumber" />
+            <PropertyRef Name="MartialStatus" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="IdenficatioNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="College" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmentOftheFamily" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MartialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaymentthatisOutStanding" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentResievedtoDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeeklyPaymentExpected" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HouseingSystem.dbo.Table_1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="ApartmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="HouseingSystemModelStoreContainer">
+          <EntitySet Name="Applicant" EntityType="Self.Applicant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Employee].[EmployeeId] AS [EmployeeId], 
+[Employee].[UserName] AS [UserName], 
+[Employee].[Forename] AS [Forename], 
+[Employee].[Surname] AS [Surname], 
+[Employee].[EmploymentDate] AS [EmploymentDate], 
+[Employee].[AccessLevel] AS [AccessLevel], 
+[Employee].[Department] AS [Department], 
+[Employee].[Password] AS [Password], 
+[Employee].[ConfirmPassword] AS [ConfirmPassword]
+FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Finances" EntityType="Self.Finances" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Finances].[ApartmentId] AS [ApartmentId], 
+[Finances].[Address] AS [Address], 
+[Finances].[Billing] AS [Billing], 
+[Finances].[Rent] AS [Rent], 
+[Finances].[Total] AS [Total]
+FROM [dbo].[Finances] AS [Finances]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Finances2" EntityType="Self.Finances2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Finances2].[ID] AS [ID], 
+[Finances2].[Name] AS [Name], 
+[Finances2].[Address] AS [Address], 
+[Finances2].[Billing] AS [Billing], 
+[Finances2].[Rent] AS [Rent], 
+[Finances2].[Total] AS [Total]
+FROM [dbo].[Finances2] AS [Finances2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MaintenceRequest" EntityType="Self.MaintenceRequest" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MaintenceRequest].[ID] AS [ID], 
+[MaintenceRequest].[SummisionDate] AS [SummisionDate], 
+[MaintenceRequest].[NameOfResident] AS [NameOfResident], 
+[MaintenceRequest].[Address] AS [Address], 
+[MaintenceRequest].[DatePromblemWasFixed] AS [DatePromblemWasFixed], 
+[MaintenceRequest].[NameOfEmployeethatFixedit] AS [NameOfEmployeethatFixedit], 
+[MaintenceRequest].[PrombolemDescription] AS [PrombolemDescription]
+FROM [dbo].[MaintenceRequest] AS [MaintenceRequest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PreferenceAboutApartment" EntityType="Self.PreferenceAboutApartment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PreferenceAboutApartment].[FurnisherStautus] AS [FurnisherStautus], 
+[PreferenceAboutApartment].[AirCondtitioning] AS [AirCondtitioning], 
+[PreferenceAboutApartment].[VillageCity] AS [VillageCity], 
+[PreferenceAboutApartment].[NumberOfRooms] AS [NumberOfRooms], 
+[PreferenceAboutApartment].[DishWasher] AS [DishWasher]
+FROM [dbo].[PreferenceAboutApartment] AS [PreferenceAboutApartment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Resident" EntityType="Self.Resident" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Resident].[IdenficatioNumber] AS [IdenficatioNumber], 
+[Resident].[Name] AS [Name], 
+[Resident].[Gender] AS [Gender], 
+[Resident].[College] AS [College], 
+[Resident].[DepartmentOftheFamily] AS [DepartmentOftheFamily], 
+[Resident].[TelephoneNumber] AS [TelephoneNumber], 
+[Resident].[MartialStatus] AS [MartialStatus], 
+[Resident].[Address] AS [Address], 
+[Resident].[PaymentthatisOutStanding] AS [PaymentthatisOutStanding], 
+[Resident].[PaymentResievedtoDate] AS [PaymentResievedtoDate], 
+[Resident].[WeeklyPaymentExpected] AS [WeeklyPaymentExpected]
+FROM [dbo].[Resident] AS [Resident]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Table_1].[ApartmentID] AS [ApartmentID], 
+[Table_1].[Address] AS [Address]
+FROM [dbo].[Table_1] AS [Table_1]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HouseingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Applicant">
+          <Key>
+            <PropertyRef Name="IdenficationNumber" />
+          </Key>
+          <Property Name="IdenficationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PreferenceAbouttheApartmentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Forename" />
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="EmploymentDate" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="ConfirmPassword" />
+          </Key>
+          <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Forename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AccessLevel" Type="Int32" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Finance">
+          <Key>
+            <PropertyRef Name="ApartmentId" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Billing" />
+            <PropertyRef Name="Rent" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ApartmentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Billing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Finances2">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Billing" />
+            <PropertyRef Name="Rent" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Billing" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Rent" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaintenceRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SummisionDate" />
+            <PropertyRef Name="NameOfResident" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="DatePromblemWasFixed" />
+            <PropertyRef Name="NameOfEmployeethatFixedit" />
+            <PropertyRef Name="PrombolemDescription" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SummisionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NameOfResident" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatePromblemWasFixed" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NameOfEmployeethatFixedit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrombolemDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreferenceAboutApartment">
+          <Key>
+            <PropertyRef Name="FurnisherStautus" />
+            <PropertyRef Name="AirCondtitioning" />
+            <PropertyRef Name="VillageCity" />
+            <PropertyRef Name="NumberOfRooms" />
+            <PropertyRef Name="DishWasher" />
+          </Key>
+          <Property Name="FurnisherStautus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AirCondtitioning" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VillageCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfRooms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DishWasher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="IdenficatioNumber" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="College" />
+            <PropertyRef Name="DepartmentOftheFamily" />
+            <PropertyRef Name="TelephoneNumber" />
+            <PropertyRef Name="MartialStatus" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="IdenficatioNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartmentOftheFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MartialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentthatisOutStanding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentResievedtoDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeeklyPaymentExpected" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="ApartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HouseingSystemEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Finances" EntityType="Self.Finance" />
+          <EntitySet Name="Finances2" EntityType="Self.Finances2" />
+          <EntitySet Name="MaintenceRequests" EntityType="Self.MaintenceRequest" />
+          <EntitySet Name="PreferenceAboutApartments" EntityType="Self.PreferenceAboutApartment" />
+          <EntitySet Name="Residents" EntityType="Self.Resident" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HouseingSystemModelStoreContainer" CdmEntityContainer="HouseingSystemEntities2">
+          <EntitySetMapping Name="Applicants">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Applicant">
+              <MappingFragment StoreEntitySet="Applicant">
+                <ScalarProperty Name="IdenficationNumber" ColumnName="IdenficationNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="MatialStatus" ColumnName="MatialStatus" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PreferenceAbouttheApartmentID" ColumnName="PreferenceAbouttheApartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HouseingSystemModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finances">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Finance">
+              <MappingFragment StoreEntitySet="Finances">
+                <ScalarProperty Name="ApartmentId" ColumnName="ApartmentId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Billing" ColumnName="Billing" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finances2">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Finances2">
+              <MappingFragment StoreEntitySet="Finances2">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Billing" ColumnName="Billing" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintenceRequests">
+            <EntityTypeMapping TypeName="HouseingSystemModel.MaintenceRequest">
+              <MappingFragment StoreEntitySet="MaintenceRequest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SummisionDate" ColumnName="SummisionDate" />
+                <ScalarProperty Name="NameOfResident" ColumnName="NameOfResident" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DatePromblemWasFixed" ColumnName="DatePromblemWasFixed" />
+                <ScalarProperty Name="NameOfEmployeethatFixedit" ColumnName="NameOfEmployeethatFixedit" />
+                <ScalarProperty Name="PrombolemDescription" ColumnName="PrombolemDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreferenceAboutApartments">
+            <EntityTypeMapping TypeName="HouseingSystemModel.PreferenceAboutApartment">
+              <MappingFragment StoreEntitySet="PreferenceAboutApartment">
+                <ScalarProperty Name="FurnisherStautus" ColumnName="FurnisherStautus" />
+                <ScalarProperty Name="AirCondtitioning" ColumnName="AirCondtitioning" />
+                <ScalarProperty Name="VillageCity" ColumnName="VillageCity" />
+                <ScalarProperty Name="NumberOfRooms" ColumnName="NumberOfRooms" />
+                <ScalarProperty Name="DishWasher" ColumnName="DishWasher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Residents">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Resident">
+              <MappingFragment StoreEntitySet="Resident">
+                <ScalarProperty Name="IdenficatioNumber" ColumnName="IdenficatioNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="DepartmentOftheFamily" ColumnName="DepartmentOftheFamily" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="MartialStatus" ColumnName="MartialStatus" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PaymentthatisOutStanding" ColumnName="PaymentthatisOutStanding" />
+                <ScalarProperty Name="PaymentResievedtoDate" ColumnName="PaymentResievedtoDate" />
+                <ScalarProperty Name="WeeklyPaymentExpected" ColumnName="WeeklyPaymentExpected" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_1">
+            <EntityTypeMapping TypeName="HouseingSystemModel.Table_1">
+              <MappingFragment StoreEntitySet="Table_1">
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +80,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,9 +101,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\2268988.jpg" />
+    <Content Include="Modelproject.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Modelproject.edmx</DependentUpon>
+      <LastGenOutput>Modelproject.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelproject.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Modelproject.edmx</DependentUpon>
+      <LastGenOutput>Modelproject.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Modelproject.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Modelproject.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelproject.edmx.diagram">
+      <DependentUpon>Modelproject.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -104,6 +129,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Pages\ErrorLogin.aspx" />
+    <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\signin.css" />
     <Content Include="MasterPage.Master" />
@@ -112,18 +139,54 @@
     <Content Include="Images\MyBanner.png" />
     <Content Include="Pages\about.aspx" />
     <Content Include="Pages\home.aspx" />
-    <Content Include="Pages\LogIn.aspx" />
     <Content Include="Pages\Reports.aspx" />
     <Content Include="Styles\StyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicant.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finance.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finances2.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenceRequest.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelproject.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelproject.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelproject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelproject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelproject.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\about.aspx.cs">
       <DependentUpon>about.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ErrorLogin.aspx.cs">
+      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ErrorLogin.aspx.designer.cs">
+      <DependentUpon>ErrorLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -132,12 +195,12 @@
     <Compile Include="Pages\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LogIn.aspx.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="Pages\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\LogIn.aspx.designer.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="Pages\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reports.aspx.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
@@ -145,6 +208,9 @@
     </Compile>
     <Compile Include="Pages\Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreferenceAboutApartment.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterPage.Master.cs">
@@ -154,8 +220,19 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Resident.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_1.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Modelproject.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

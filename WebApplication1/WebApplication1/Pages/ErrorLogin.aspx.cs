@@ -7,23 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1.Pages
 {
-    public partial class LogIn : System.Web.UI.Page
+    public partial class ErrorLogin : System.Web.UI.Page
     {
-      
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        //if button clicked displayed login page
+        protected void Button1_Click(object sender, EventArgs e)
         {
 
+            Response.Redirect("LoginPage.aspx");
         }
     }
 }
