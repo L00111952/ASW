@@ -10,10 +10,10 @@
     <form id="form1" runat="server">
         <div>
             <!––adding two labels and a button––> 
-            <asp:Label ID="Label1" runat="server" Text="Sorry you entered the wrong correntials "></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Sorry you entered the wrong username or password "></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label2" runat="server" Text="Please click on button andre-enter correntials"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Please click on button and re-enter correntials"></asp:Label>
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="LogIn" />
         </div>

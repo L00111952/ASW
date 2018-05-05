@@ -26,7 +26,7 @@
                     <asp:MenuItem NavigateUrl="~/Pages/home.aspx" Text="Home" ToolTip="Click This menu item to view home page" Value="Home"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Pages/about.aspx" Text="About" ToolTip="Click this to ge the about page" Value="About"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Pages/Reports.aspx" Text="Reports" Value="Reports"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Pages/Login.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Pages/LoginPage.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
                 </Items>
             </asp:Menu>
         </div>

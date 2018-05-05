@@ -20,15 +20,15 @@ namespace WebApplication1.Pages
         {
             //setting up connect to database
             HouseingSystemEntities2 db = new HouseingSystemEntities2();
-            User u = new User();
+            User user = new User();
             //string passowrd and user
-            string un = txtuser.Text.ToString();
-            string pas = txtpass.Text.ToString();
+            string uNames = txtuser.Text.ToString();
+            string password = txtpass.Text.ToString();
             //using for statement 
-            foreach (User us in db.Users)
+            foreach (User users in db.Users)
             {
                 //using if statment if the user and password are = to the user and password in datbase display home screen
-                if (us.Username == un && us.password == pas)
+                if (users.Username == uNames && users.password == password)
                 {
                     //home screen
                     Response.Redirect("home.aspx");
